@@ -1,0 +1,18 @@
+{% extends "homepage.html" %}
+
+{% block right-content %}
+    <h1>资产管理</h1>
+    <hr>
+
+    {{ request.user.user_profile.hosts.select_related }}  {# 这里注意，user_profile区分大小写，这里只识别小写 #}
+    <ul>
+        {% for group in request.user.user_profile.host_group.select_related %}
+            <li>{{ group.name }}</li>
+            <ul>
+            {% for host in group.host_set.select_related %}
+                <li>{{ host.name }}--->{{ host.ip_addr }}--->{{ host.idc.name }}</li>
+            {% endfor %}
+            </ul>
+        {% endfor %}
+    </ul>
+{% endblock %}

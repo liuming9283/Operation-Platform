@@ -1,0 +1,56 @@
+{% extends "homepage.html" %}
+
+{% block head %}
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>运维平台登录</title>
+    <!-- Bootstrap core CSS -->
+    <link href="/static/bootstrap-3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="/static/bootstrap-3.3.7/css/signin.css" rel="stylesheet">
+{% endblock %}
+
+{% block main_content %}
+
+    <div class="container">
+      <form class="form-signin" method="post" role="form"> {% csrf_token %}
+        <h2 class="form-signin-heading">运维平台登录</h2>
+        <input type="text" name="username" class="form-control" placeholder="username" required="" autofocus="">
+        <input type="password" name="password" class="form-control" placeholder="Password" required="">
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" value="remember-me"> Remember me
+          </label>
+        </div>
+        <div>
+            <div style="float: left;width:143px">
+                <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+            </div>
+            <div style="float: right;width:143px">
+                <a class="btn btn-lg btn-primary btn-block" href="/register/">Register</a>
+            </div>
+        <span style="color: #ff3f2f">{{ login_err }}</span>
+        </div>
+      </form>
+    </div>
+
+
+{#    <div class="row">#}
+{#        <div class="col-md-4">#}
+{#        </div>#}
+{#        <div class="col-md-4">#}
+{#            <form class="" method="post"> {% csrf_token %}#}
+{#                <input type="text" name="username" placeholder="username"/>#}
+{#                <br>#}
+{#                <input type="password" name="password" placeholder="password"/>#}
+{#                <br>#}
+{#                <input type="submit" class="btn btn-info" value="登录"/>#}
+{#                <br>#}
+{#                <span style="color: #ff3f2f">{{ login_err }}</span>#}
+{#            </form>#}
+{#        </div>#}
+{#    </div>#}
+{% endblock %}

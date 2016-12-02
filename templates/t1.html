@@ -1,0 +1,38 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户信息</title>
+</head>
+<body>
+    <form action="/db/" method="post">
+        <p><input type="text" name="username" /></p>
+        <p><input type="text" name="password" /></p>
+        <p><input type="text" name="age" /></p>
+        <p><input type="submit" value="提交" /></p>
+    </form>
+    <br>
+    <h2>{{ name }}</h2>
+    <table border="2">
+        <thead>
+            <tr>
+                <th>用户名</th>
+                <th>密码</th>
+                <th>年龄</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in li %}
+            <tr>
+                <td>{{ item.username }}</td>
+                <td>{{ item.password }}</td>
+                <td>{{ item.age }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <script src="/static/jquery.min.js"></script>
+
+</body>
+</html>
